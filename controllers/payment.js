@@ -66,19 +66,33 @@ const {orderId,
  
 }
 
-export const userOrder = async (req,res)=>{
- let userId= req.user
- let orders = await payment.find({userId:userId}).sort({orderDate:-1});
- res.json(orders)
+export const userOrder = async (req, res) => {
+  let userId = req.user
+  // let userId = "664b4f29a3089d465f55666e";
+  console.log(userId);
 
-}
+  try {
+    let orders = await payment.find({ userId: userId }).sort({ orderDate: -1 });
 
-export const allorders = async (req,res)=>{
- let orders = await payment.find().sort({orderDate:-1});
- res.json(orders)
+    if (!orders) return res.json({ message: "Not order yet" });
 
-}
+    res.json({ message: "User Ordered Products ", orders });
+  } catch (error) {
+    res.json({ messge: error });
+  }
+};
 
+export const allOrders = async (req, res) => {
+  try {
+    let orders = await payment.find().sort({ orderDate: -1 });
+
+    if (!orders) return res.json({ message: "Not order yet" });
+
+    res.json({ message: "All Ordered Products ", orders });
+  } catch (error) {
+    res.json({ messge: error });
+  }
+};
 
 
 

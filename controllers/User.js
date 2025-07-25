@@ -46,10 +46,11 @@ export const login = async (req, res) => {
 
 // get all users
 
-export const Users =async (req,res)=>{
+export const users =async (req,res)=>{
 try{
-  let users = await User.find().sort({createdAt:-1})
+  let users= await User.find().sort({createdAt:-1})
    res.json(users);
+   console.log('userdata',users)
 }
 catch(error){
 res.json(error.message);
@@ -66,6 +67,16 @@ export const profile = async(req,res)=>{
 
 
 } 
+export const userById = async (req, res) => {
+  const id = req.params.id;
+  try {
+    let user = await User.findById(id);
+    if (!user) return res.json({ message: "User not exist" });
+    res.json({ user });
+  } catch (error) {
+    res.json({ message: error });
+  }
+};
 
 
 
