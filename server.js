@@ -16,7 +16,7 @@ const app = express();
 
 app.use(bodyParser.json())
 app.use(cors({
-  origin:"https://ritikjain6521-find-a-repository-eco.vercel.app",
+  origin:true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
  credentials:true
 
