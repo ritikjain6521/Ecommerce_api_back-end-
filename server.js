@@ -47,7 +47,7 @@ app.use('/api/payment',paymentrouter)
 
 
 mongoose.connect(
-    "mongodb+srv://ritikjain6224:qJvYokUpFBZr3sub@cluster0.z6rba.mongodb.net/",{
+    "mongodb+srv://ritikjain6224:rIcgIsARCPneYwU7@cluster0.z6rba.mongodb.net/",{
        dbName:"MERN_E_Commerce"
     }
 ).then(()=> console.log("mongodb connected Succesfully")).catch((err)=> console.log('err'));
