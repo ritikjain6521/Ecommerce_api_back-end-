@@ -2,8 +2,8 @@ import { payment } from '../modules/payment.js';
 import Razorpay from 'razorpay'
 
 const razorpay = new Razorpay({
-  key_id: 'rzp_test_AJvNPrJVEVbVga',
-  key_secret: 'amoFhvew1LF5kjkB9NGCerBa',
+  key_id: 'rzp_test_Sv7JoVGcWffis8',
+  key_secret: 'z34pjLsi9gccncwERGKv5JCM',
 });
 
 export const checkout = async (req,res) =>{
